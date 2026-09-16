@@ -44,7 +44,7 @@ app.use('/applications', applicationRoutes);
 app.use('/messages', messageRoutes);
 app.use('/departments', departmentRoutes);
 app.use('/positions', positionRoutes);
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
