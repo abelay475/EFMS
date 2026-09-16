@@ -61,8 +61,7 @@ function DocumentsSection({ token, employeeId, documents, onRefresh, readOnly })
       <ul className="document-list">
         {documents.map((doc) => (
           <li key={doc.id}>
-            <a href={`http://localhost:5000/${doc.file_path}`} target="_blank" rel="noreferrer">
-              {doc.document_type} — {doc.file_name}
+            <a href={doc.file_path} target="_blank" rel="noreferrer"> 
             </a>
             {!readOnly && (
               <button className="delete-btn" onClick={() => handleDelete(doc.id)}>Delete</button>

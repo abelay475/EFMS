@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { fetchDocuments, updateEmployeeStatus, BASE_URL } from '../api';
+import { fetchDocuments, updateEmployeeStatus } from '../api';
 
 function ApplicantReview({ token, currentUser, employees, onRefresh }) {
   const role = currentUser?.role;
@@ -86,7 +86,7 @@ function ApplicantReview({ token, currentUser, employees, onRefresh }) {
                   <span style={{ fontSize: '12.5px', color: 'var(--color-text-muted)' }}>Loading CV...</span>
                 )}
                 {cv && !cv.loading && cv.doc && (
-                  <a href={`${BASE_URL}/${cv.doc.file_path}`} target="_blank" rel="noreferrer">
+                  <a href={cv.doc.file_path} target="_blank" rel="noreferrer">
                     View CV
                   </a>
                 )}
