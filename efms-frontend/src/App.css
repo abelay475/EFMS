@@ -1671,13 +1671,19 @@ p {
 .chip-you {
   background: color-mix(in srgb, var(--color-accent) 14%, transparent);
   color: var(--color-accent);
-  margin-left: 6px;
 }
 
 .employee-name-cell {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.employee-name-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
 }
 
 .employee-avatar {

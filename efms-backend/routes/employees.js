@@ -47,6 +47,9 @@ router.post('/', authenticateToken, (req, res, next) => {
     await logAction(req.user.id, 'CREATE', 'employee', result.insertId, `Created employee ${full_name} with CV`);
     res.status(201).json({ id: result.insertId, message: 'Employee created' });
   } catch (err) {
+    if (err.code === 'ER_DUP_ENTRY') {
+      return res.status(409).json({ error: 'A user with this email already exists' });
+    }
     console.error(err);
     res.status(500).json({ error: 'Failed to create employee' });
   }
@@ -190,6 +193,9 @@ router.put('/:id', authenticateToken, async (req, res) => {
 
     res.json({ message: 'Employee updated' });
   } catch (err) {
+    if (err.code === 'ER_DUP_ENTRY') {
+      return res.status(409).json({ error: 'A user with this email already exists' });
+    }
     console.error(err);
     res.status(500).json({ error: 'Failed to update employee' });
   }

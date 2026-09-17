@@ -371,7 +371,7 @@ function EmployeeList({ token, currentUser, onRefresh, onManage }) {
                     <td>
                       <div className="employee-name-cell">
                         <span className="employee-avatar">{initials(emp.full_name)}</span>
-                        <span>
+                        <span className="employee-name-info">
                           {emp.full_name}
                           {isYou && <span className="chip chip-you">You</span>}
                         </span>
